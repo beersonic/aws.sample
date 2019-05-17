@@ -22,8 +22,12 @@ namespace TestAWSSQS
             try
             {
                 // create SQS client
-                var sqsConfig = new AmazonSQSConfig();
-                sqsConfig.ServiceURL = "https://sqs.us-east-1.amazonaws.com";
+                var sqsConfig = new AmazonSQSConfig()
+                {
+                    ServiceURL = "https://sqs.us-east-1.amazonaws.com"
+                };
+
+                Console.WriteLine("Creating AWS SQSClient");
                 var sqsClient = new AmazonSQSClient(sqsConfig);
 
                 if (useFIFO)
@@ -34,6 +38,8 @@ namespace TestAWSSQS
                     }
                     sqsClient.SetQueueAttributes(SQS_URL, dictSQSAttribute);
                 }
+                Console.WriteLine("Creating AWS SQSClient done");
+                
 
                 // start loop to send message
                 int count = 0;
@@ -47,7 +53,7 @@ namespace TestAWSSQS
                         String id = DateTime.Now.Hour + DateTime.Now.Minute + "." + ++msgId;
                         sendMessageRequest.QueueUrl = SQS_URL;
                         sendMessageRequest.MessageBody = "[" + id + "] Message from C# application at " + DateTime.Now.ToString();
-
+                        
                         if (useFIFO)
                         {
                             sendMessageRequest.MessageGroupId = (msgId % SQS_FIFO_NUMBER_OF_GROUP).ToString();

@@ -14,8 +14,8 @@ public class SQSReciever
 
     final String SQS_STANDARD = "https://sqs.us-east-1.amazonaws.com/728823697784/QUEUE_TEST1";
     final String SQS_FIFO = "https://sqs.us-east-1.amazonaws.com/728823697784/QUEUE_TEST2.fifo";
-    //final String SQS_URL = SQS_STANDARD;
-    final String SQS_URL = SQS_FIFO;
+    final String SQS_URL = SQS_STANDARD;
+    //final String SQS_URL = SQS_FIFO;
     final String AWS_REGION = "us-east-1";
 
 

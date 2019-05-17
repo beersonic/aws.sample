@@ -5,3 +5,7 @@
 /SQS/myapp/.vscode
 /SQS/myapp/.settings
 /SQS/myapp/target
+/SNS/SNSPublisherCS/packages
+/SNS/SNSPublisherCS/.vs
+/SNS/SNSPublisherCS/SNSPublisherCS/obj
+/SNS/SNSPublisherCS/SNSPublisherCS/bin
